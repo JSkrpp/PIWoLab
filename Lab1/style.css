@@ -41,7 +41,6 @@ main{
 .listing{
   text-align: center;
   font-size: 1em;
-  width: 50%;
   border: 3px solid black;
 }
 
@@ -52,30 +51,12 @@ main{
   justify-content: center;
 }
 
-.grid-container {
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-}
-
-.grid-item {
-  padding: 10px;
-  text-align: center;
-  border: 1px solid black;
-}
-
-.grid-item-header{
-  padding: 10px;
-  border: 1px solid black;
-  text-align: center;
-  font-weight: bold;
-  font-size: 1.5em;
-}
-
 h2{
   font-size: 2em;
 }
 
-li{
+ul{
+  list-style-type: circle;
   font-size: 1.2em;
 }
 
