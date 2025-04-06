@@ -5,8 +5,6 @@
     <meta charset="utf-8"/>
     <title>TODOList</title>
     <link href = "style.css" rel = "stylesheet"/>
-    <script src = "script.js" defer></script>
-    
 </head>
 
 <body>
@@ -17,17 +15,61 @@
 
 <main>
 
-    <section class ="input-field">
+    <section class ="section-box">
         <label for="textField">Dodaj nową czynność</label> 
-        <input id="textField" type="text" placeholder="Wpisz czynność do listy..." autofocus/>
+        <input id="textField" type="text" placeholder="Wpisz nazwę..." autofocus/>
         <button id= "addButton" aria-label="Dodaj">Dodaj</button>
+
+        <label for="listSelector">Wybierz listę:</label>
+            <select id="listSelector">
+                <option value="today">Na dzisiaj</option>
+                <option value="tomorrow">Na jutro</option>
+                <option value="week">Na ten tydzień</option>
+                <option value="later">Na później</option>
+            </select>
+    </section>
+    
+    <section class = "section-box">
+        <button id="restoreButton" aria-label="Przywracanie">Przywracanie ostatniej usuniętej czynności</button>
     </section>
 
+    <section class = "section-box">
+        <label id ="emptyBinLabel">Kosz jest pusty</label>
+    </section>
+    
+
+    <h2>Na dzisiaj</h2>
     <section class ="todo-list">
-        <ul id="todoItems"></ul>
+        <ul id="todoItemsToday"></ul>
+    </section>
+
+    <h2>Na jutro</h2>
+    <section class ="todo-list">
+        <ul id="todoItemsTomorrow"></ul>
+    </section>
+
+    <h2>Na ten tydzień</h2>
+    <section class = "todo-list">
+        <ul id="todoItemsWeek"></ul>
+    </section>
+
+    <h2>Na później</h2>
+    <section class = "todo-list">
+        <ul id="todoItemsLater"></ul>
     </section>
 
 </main>
 
+<footer>
+    <h3>Uwaga! Przywracanie tasków nie zapamiętuje listy, na której się znajdował. Przywraca do wybranej listy w menu. </h3>
+</footer>
+
+<script src = "./script.js" defer></script>  
+
+<dialog id = "modal">
+    <h3 id = "modalText"></h3>
+    <button id = "yes">Tak</button>
+    <button id = "no">Nie</button>
+</dialog>
 </body>
 </html>

@@ -5,21 +5,157 @@
   }
 
 main{
+    flex: 1;
     display: flex;
-    gap: 2em;
+    gap: 1.5em;
     flex-direction: column;
-}  
+    margin-inline: 10ch;
+    overflow-y: auto;
+} 
+
+body{
+    display: flex;
+    flex-direction: column;
+    background-color: beige;
+}
+
+button{
+    border-radius: 4px;
+    font-size: 0.8em;
+    padding-inline: 1ch;
+}
+
+button:hover{
+    cursor: pointer;
+    background-color:darkgrey
+}
+
+select{
+    font-size: 0.8em;
+    border-radius: 2px;
+}
+
+dialog{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    border-radius: 6px;
+    font-size: 1.5em;
+}
+
+h2{
+    font-size: 2em;
+}
+
 
 .title-header{
     text-align: center;
     font-size: 2em;
 }
 
-.input-field{
+.section-box{
     text-align: center;
-    font-size: 1.5em;
+    font-size: 1.8em;
 }
 
 .todo-list{
+    max-height: 1000px;
+    overflow-y: auto;
     font-size: 1.3em;
+    border-radius: 4px;
+    border: 2px solid black;
+    transition: max-height 0.3s ease-in-out;
+    overflow: hidden;
+}
+
+.todo-list::-webkit-scrollbar{
+    width: 8px;
+}
+
+.todo-list::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 4px;
+}
+
+.todo-list::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+.todo-list ul{
+    background-color: aliceblue;
+    padding-inline: 2ch;
+}
+
+.todo-list ul:hover{
+    background-color:gainsboro
+}
+
+
+.todo-list.closed {
+    transition: 0.1s ease-in-out;
+    max-height: 0px;
+}
+
+.done{
+    text-decoration: line-through;
+    color: grey;
+}
+
+footer{
+    justify-content: center;
+    background-color: antiquewhite;
+    border: 2px solid black;
+    padding-block: 2ch;
+    font-size: 1.8em;
+    margin-top: auto;
+    text-align: center;
+}
+
+.task {
+    cursor: pointer;
+}
+
+.task.done {
+    text-decoration: line-through;
+    color: gray;
+}
+
+.date {
+    color: black;
+    size: 0.85em;
+}
+
+.todo-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 4px 0;
+}
+
+.task-content{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    flex-grow: 1;
+    cursor: pointer;
+}
+
+.delete-btn {
+    background: none;
+    border: none;
+    color: red;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+#emptyBinLabel{
+    font-size: 0.7em;
+}
+
+#textField{
+    font-size: 0.8em;
 }
