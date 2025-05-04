@@ -1,4 +1,4 @@
-export default ({ todo, handleDone }) => {
+export default ({ book, handleDone }) => {
     const typer = (type) => {
       if (type === "academia") return "🎓";
       if (type === "adventure") return "🗡️";
@@ -6,16 +6,16 @@ export default ({ todo, handleDone }) => {
     };
     return (
       <article
-        className={`list-horizontal ${todo.completed && "done"}`}
-        onClick={!todo.completed ? () => handleDone(todo.id) : null}
+        className={`list-horizontal ${book.completed && "done"}`}
+        onClick={!book.completed ? () => handleDone(book.id) : null}
       >
         <span>
-          <span>{typer(todo.type)}</span>
-          <span>{todo.text}</span>
+          <span>{typer(book.type)}</span>
+          <span>{book.text}</span>
           <button className="edit-btn">Edit</button>
           <button className="delete-btn">Delete</button>
         </span>
-        {todo.completed}
+        {book.completed}
       </article>
     );
   };

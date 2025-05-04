@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
 import Book from "../Components/Book";
-import { TodosContext } from "../Contexts/BooksContext";
+import { BooksContext } from "../Contexts/BooksContext";
 
 export function meta() {
   return [
@@ -11,15 +11,15 @@ export function meta() {
 
 export default function Home() {
   const types = ["academia", "adventure", "mystery"];
-  const { todoList, setTodoList } = useContext(TodosContext);
+  const { bookList, setBookList } = useContext(BooksContext);
   const [query, setQuery] = useState("");
   const [selectedType, setSelectedType] = useState("");
 
-  const handleDone = (todoID) => {
+  const handleDone = (bookID) => {
     const now = new Date();
-    setTodoList((prev) =>
+    setBookList((prev) =>
       prev.map((it) =>
-        it.id === todoID
+        it.id === bookID
           ? {
               ...it,
               dateCompleted: String(now.toLocaleString("pl-PL")),
@@ -29,14 +29,14 @@ export default function Home() {
     );
   };
 
-  const todoListHTML = todoList
+  const bookListHTML = bookList
     .filter((it) => {
       const matchesQuery = it.text.toLowerCase().includes(query.toLowerCase());
       const matchesType = selectedType ? it.type === selectedType : true;
       return matchesQuery && matchesType;
     })
     .sort((a, b) => a.completed - b.completed)
-    .map((it) => <Book key={it.id} todo={it} handleDone={handleDone} />);
+    .map((it) => <Book key={it.id} book={it} handleDone={handleDone} />);
 
   return (
     <main className="list-vertical">
@@ -55,7 +55,7 @@ export default function Home() {
         ))}
       </select>
 
-      {todoListHTML}
+      {bookListHTML}
     </main>
   );
 }

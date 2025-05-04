@@ -1,9 +1,9 @@
 import { createContext, useState } from "react";
 
-export const TodosContext = createContext();
+export const BooksContext = createContext();
 
-export const TodosProvider = ({ children }) => {
-  const [todoList, setTodoList] = useState([
+export const BooksProvider = ({ children }) => {
+  const [bookList, setBookList] = useState([
     {
       id: 1,
       text: "Książka kulinarna",
@@ -25,8 +25,8 @@ export const TodosProvider = ({ children }) => {
   ]);
 
   return (
-    <TodosContext.Provider value={{ todoList, setTodoList }}>
+    <BooksContext.Provider value={{ bookList, setBookList }}>
       {children}
-    </TodosContext.Provider>
+    </BooksContext.Provider>
   );
 };

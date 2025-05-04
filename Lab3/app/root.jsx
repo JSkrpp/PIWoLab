@@ -10,7 +10,7 @@ import NavBar from "./Components/NavBar";
 import Footer from "./Components/Footer";
 
 import stylesheet from "./app.css?url";
-import { TodosProvider } from "./Contexts/BooksContext";
+import { BooksProvider } from "./Contexts/BooksContext";
 
 export const links = () => [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -27,8 +27,8 @@ export const links = () => [
 ];
 export function meta() {
   return [
-    { title: "ToDo App" },
-    { name: "description", content: "Website for ToDo App" },
+    { title: "Book App" },
+    { name: "description", content: "Website for Books App" },
   ];
 }
 
@@ -54,9 +54,9 @@ export function Layout({ children }) {
 
 export default function App() {
   return (
-    <TodosProvider>
+    <BooksProvider>
       <Outlet />
-    </TodosProvider>
+    </BooksProvider>
   );
 }
 

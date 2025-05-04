@@ -3,7 +3,7 @@ import { useContext, useState } from "react";
 export function meta() {
   return [
     { title: "Login" },
-    { name: "description", content: "Website for ToDoz App" },
+    { name: "description", content: "Website for Books App" },
   ];
 }
 
