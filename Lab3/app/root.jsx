@@ -6,8 +6,11 @@ import {
   Scripts,
   ScrollRestoration,
 } from "react-router";
+import NavBar from "./Components/NavBar";
+import Footer from "./Components/Footer";
 
-import "./app.css";
+import stylesheet from "./app.css?url";
+import { TodosProvider } from "./Contexts/BooksContext";
 
 export const links = () => [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -20,7 +23,14 @@ export const links = () => [
     rel: "stylesheet",
     href: "https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap",
   },
+  { rel: "stylesheet", href: stylesheet },
 ];
+export function meta() {
+  return [
+    { title: "ToDo App" },
+    { name: "description", content: "Website for ToDo App" },
+  ];
+}
 
 export function Layout({ children }) {
   return (
@@ -32,7 +42,9 @@ export function Layout({ children }) {
         <Links />
       </head>
       <body>
-        {children}
+        <NavBar /> {/* globalny NavBar */}
+        <main>{children}</main>
+        <Footer /> {/* globalny Footer */}
         <ScrollRestoration />
         <Scripts />
       </body>
@@ -41,7 +53,11 @@ export function Layout({ children }) {
 }
 
 export default function App() {
-  return <Outlet />;
+  return (
+    <TodosProvider>
+      <Outlet />
+    </TodosProvider>
+  );
 }
 
 export function ErrorBoundary({ error }) {
