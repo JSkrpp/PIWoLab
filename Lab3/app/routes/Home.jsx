@@ -16,13 +16,11 @@ export default function Home() {
   const [selectedType, setSelectedType] = useState("");
 
   const handleDone = (bookID) => {
-    const now = new Date();
     setBookList((prev) =>
       prev.map((it) =>
         it.id === bookID
           ? {
               ...it,
-              dateCompleted: String(now.toLocaleString("pl-PL")),
             }
           : it
       )
