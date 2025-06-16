@@ -8,19 +8,19 @@ export const BooksProvider = ({ children }) => {
       id: 1,
       text: "Książka kulinarna",
       type: "academia",
-      completed: false,
+      owner: "Mike123",
     },
     {
       id: 2,
       text: "Hobbit",
       type: "adventure",
-      completed: false,
+      owner: null,
     },
     {
       id: 3,
       text: "Sherlock Holmes",
       type: "mystery",
-      completed: false,
+      owner: null,
     },
   ]);
 

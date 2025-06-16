@@ -12,6 +12,7 @@ export default ({ book, handleDone }) => {
         <span>
           <span>{typer(book.type)}</span>
           <span>{book.text}</span>
+          <span> Owned by: {book.owner}</span>
           <button className="edit-btn">Edit</button>
           <button className="delete-btn">Delete</button>
         </span>
